@@ -1,4 +1,7 @@
 
+
+
+'''
 n = "cheese"
 n = set(n)
 
@@ -17,7 +20,7 @@ for c in x:
 
 
 
-'''import sys
+import sys
 
 r = int(sys.stdin.readline())
 
