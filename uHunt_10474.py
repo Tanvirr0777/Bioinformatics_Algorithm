@@ -14,7 +14,6 @@ def marbel_search(arr,l,r,key,index):
     else:
         return marbel_search(arr,mid+1,r,key,index)
 
-
 f = sys.stdin
 
 case = 0
