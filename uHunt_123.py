@@ -1,5 +1,5 @@
 
-fr = open("input.txt","r")
+fr = open("Graph/input.txt", "r")
 fw = open("output.txt","w")
 
 flag_sen = False

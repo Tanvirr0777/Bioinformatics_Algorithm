@@ -1,4 +1,3 @@
-import sys
 
 def marbel_search(arr,l,r,key,index):
     if l > r:

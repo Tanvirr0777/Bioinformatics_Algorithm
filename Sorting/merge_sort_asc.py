@@ -29,6 +29,7 @@ def merge(arr, l, m, r):
 
 
 def merge_sort(arr, left, right):
+
     if left >= right:
         return
     mid = left + (right - left) // 2
