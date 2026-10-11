@@ -1,6 +1,6 @@
 from functools import cmp_to_key
 
-V = 6
+V = 5
 adj = [ [] for _ in range(V)]
 edges = []
 
@@ -42,7 +42,7 @@ def union(x,y):
 
     parent[rooty] = rootx
 
-    size[rootx] += rooty
+    size[rootx] += [rooty]
 
     return True
 

@@ -2,8 +2,6 @@ import heapq
 from collections import deque
 
 
-
-
 def display():
     for i in range(len(adj)):
         print(f"{i} : ",end=" ")
@@ -56,7 +54,7 @@ def dfs():
                 stack.append(x)
     return res
 
-V = 6
+V = 7
 adj = [ [] for _ in range(V)]
 
 def addEdges(u,v,w):
@@ -84,7 +82,7 @@ def prim():
         visited[vertex] = True
 
         if parent != -1:
-            mst.append((parent, u, w))    # Store as (parent, vertex, weight)
+            mst.append((parent, vertex, w))    # Store as (parent, vertex, weight)
             mst_cost += w
 
         for v, weight in adj[vertex]:

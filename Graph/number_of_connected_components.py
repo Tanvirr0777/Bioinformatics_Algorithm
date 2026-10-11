@@ -41,14 +41,12 @@ def bfs(src):
 def component(src):
 
     storage = bfs(src)
-    print(storage)
     totalComponent = 1
 
     for i in range(V):
 
        if i not in storage:
            track = bfs(i)
-           print(track)
            storage += track
            totalComponent += 1
 

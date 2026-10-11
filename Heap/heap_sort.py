@@ -35,12 +35,12 @@ def heap_sort(arr,n):
     i = n // 2 - 1
 
     while i >= 0:
-        max_heapify(arr, i, n) # for descending use min_heap
+        max_heapify(arr, i, n) # for ascending use max_heap
         i -= 1
 
     for j in range(n-1,0,-1):
         arr[j],arr[0] = arr[0],arr[j]
-        max_heapify(arr,0,j) # for descending use min_heap
+        max_heapify(arr,0,j) # for descending use max_heap
 
 
 arr = list(map(int, sys.stdin.readline().split()))

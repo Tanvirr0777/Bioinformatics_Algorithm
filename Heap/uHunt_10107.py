@@ -1,51 +1,31 @@
 import heapq
 import sys
 
-mx_heap = []
-min_heap = []
+mx_heap = []   # max heap
+min_heap = []  # min heap
 
-def root_transfer(len_min,len_mx):
-    while True:
-        if abs(len(min_heap) - len(mx_heap)) == 0 or abs(len(min_heap) - len(mx_heap)) == 1:
-          break
+for line in sys.stdin:
+    x = int(line)
 
-        if len_min > len_mx:
-            x = heapq.heappop(min_heap)
-            heapq.heappush(mx_heap, -x)
-        else:
-            y = heapq.heappop(mx_heap)
-            heapq.heappush(min_heap, -y)
-
-f = sys.stdin
-
-for line in f:
-    n = int(line)
-
-    if len(mx_heap) == 0 or n <= -mx_heap[0]:
-        heapq.heappush(mx_heap, -n)
+    # Add x
+    if not mx_heap or x <= -mx_heap[0]:
+        heapq.heappush(mx_heap, -x)
     else:
-        heapq.heappush(min_heap, n)
+        heapq.heappush(min_heap, x)
 
-    len_mx_heap = len(mx_heap)
-    len_min_heap = len(min_heap)
+    # Balance heaps
+    if len(mx_heap) > len(min_heap) + 1:
+        x = -heapq.heappop(mx_heap)
+        heapq.heappush(min_heap, x)
 
-    if len_min_heap == 0:
-        print(-mx_heap[0])
+    elif len(min_heap) > len(mx_heap):
+        x = heapq.heappop(min_heap)
+        heapq.heappush(mx_heap, -x)
 
-    elif abs(len_min_heap - len_mx_heap) > 1:
-            root_transfer(len_min_heap,len_mx_heap)
-
-    len_mx_heap = len(mx_heap)
-    len_min_heap = len(min_heap)
-
-    if len_mx_heap == len_min_heap:
-        pos = -mx_heap[0]
-        print( (pos + min_heap[0]) // 2 )
-
+    # Find median
+    if len(mx_heap) == len(min_heap):
+        median = (-mx_heap[0] + min_heap[0]) // 2
     else:
-        if len_mx_heap - len_min_heap == 1 and len_min_heap != 0:
-                print(-mx_heap[0])
-        if len_min_heap - len_mx_heap == 1 and len_mx_heap != 0:
-            print(min_heap[0])
+        median = -mx_heap[0]
 
-
+    print(median)

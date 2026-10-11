@@ -20,7 +20,7 @@ arr = list(map(int, sys.stdin.readline().split()))
 
 n = len(arr)
 
-i = n//2 -1
+i = n // 2 - 1
 
 print(arr)
 

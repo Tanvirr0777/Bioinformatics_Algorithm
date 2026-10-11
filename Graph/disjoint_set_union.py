@@ -1,5 +1,4 @@
 
-
 V = 5
 
 parent = list(range(V))
@@ -18,14 +17,16 @@ def union(x, y):
     rooty = find(y)
 
     if rootx == rooty:
-        return
+        return False
 
     if size[rootx] < size[rooty]:
         rootx, rooty = rooty, rootx
 
     parent[rooty] = rootx
 
-    size[rootx] += size[rootx]
+    size[rootx] += size[rooty]
+
+    return True
 
 
 

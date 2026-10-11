@@ -15,9 +15,7 @@ for coin in range(1,r+1):
         if currency[coin] > amount:
             dp[coin][amount] = dp[coin-1][amount]
         else:
-            dp[coin][amount] = ( dp[coin-1][amount] +
-                                 dp[coin][amount-currency[coin]]
-                               )
+            dp[coin][amount] = ( dp[coin-1][amount] + dp[coin][amount-currency[coin]] )
 
 for line in sys.stdin:
     target_coin = line.strip()
